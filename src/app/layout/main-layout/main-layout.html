@@ -1,1 +1,15 @@
-<router-outlet />
+<div class="shell">
+  <header class="shell__header">
+    <a routerLink="/board" class="shell__brand">Todo board</a>
+    <nav class="shell__nav" aria-label="Main">
+      <a routerLink="/board" routerLinkActive="shell__link--active" class="shell__link">Board</a>
+      <a routerLink="/tasks/new" routerLinkActive="shell__link--active" class="shell__link">
+        New task
+      </a>
+      <a routerLink="/home" routerLinkActive="shell__link--active" class="shell__link">Home</a>
+    </nav>
+  </header>
+  <main class="shell__main">
+    <router-outlet />
+  </main>
+</div>

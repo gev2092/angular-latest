@@ -1,0 +1,58 @@
+<section class="create" aria-label="Create task">
+  <header class="create__header">
+    <h1 class="create__title">Create task</h1>
+    <p class="create__lead">
+      Add as many tasks as you need — storage is in your browser (localStorage) for this demo.
+    </p>
+    <a routerLink="/board" class="create__back">← Back to board</a>
+  </header>
+
+  <form class="create__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label class="field">
+      <span class="field__label">Title <span class="field__req" aria-hidden="true">*</span></span>
+      <input
+        class="field__input"
+        type="text"
+        formControlName="title"
+        placeholder="What needs to be done?"
+        autocomplete="off"
+      />
+      @if (submitted && form.controls.title.invalid) {
+        <span class="field__error" role="alert">Title is required.</span>
+      }
+    </label>
+
+    <label class="field">
+      <span class="field__label">Description</span>
+      <textarea
+        class="field__textarea"
+        formControlName="description"
+        rows="5"
+        placeholder="Optional details, acceptance criteria, links…"
+      ></textarea>
+    </label>
+
+    <label class="field">
+      <span class="field__label">Initial column</span>
+      <select class="field__select" formControlName="status">
+        @for (s of statuses; track s) {
+          <option [value]="s">{{ labels[s] }}</option>
+        }
+      </select>
+    </label>
+
+    <div class="create__actions">
+      <button type="submit" class="btn btn--primary">Save task</button>
+      <a routerLink="/board" class="btn btn--ghost">Cancel</a>
+    </div>
+
+    @defer (on idle) {
+      <p class="create__tip">
+        Tip: this form uses reactive forms; tasks persist in <code>localStorage</code> via a signal-based
+        <code>effect()</code> in <code>TaskStore</code>.
+      </p>
+    } @placeholder {
+      <p class="create__tip create__tip--muted" aria-hidden="true">…</p>
+    }
+  </form>
+</section>

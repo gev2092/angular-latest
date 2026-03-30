@@ -1,0 +1,15 @@
+<article
+  class="card"
+  draggable="true"
+  (dragstart)="onDragStart($event)"
+  (dragover)="onDragOver($event)"
+  (drop)="onDrop($event)"
+>
+  <h3 class="card__title">{{ task().title }}</h3>
+  @if (task().description) {
+    <p class="card__desc">{{ task().description }}</p>
+  }
+  <time class="card__meta" [attr.datetime]="task().createdAt">
+    {{ task().createdAt | date: 'medium' }}
+  </time>
+</article>

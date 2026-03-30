@@ -5,5 +5,15 @@
   &__lead {
     margin-top: 0.75rem;
     color: #444;
+
+    a {
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

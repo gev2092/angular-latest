@@ -1,0 +1,37 @@
+<section class="board" aria-label="Task board">
+  <header class="board__header">
+    <h1 class="board__title">Kanban board</h1>
+    <p class="board__meta">
+      {{ totalCount() }} task(s) ·
+      <span class="board__hint">Drag cards between columns</span>
+    </p>
+  </header>
+
+  <div class="board__columns">
+    @for (column of columns(); track column.status) {
+      <section
+        class="column"
+        [attr.aria-label]="labels[column.status]"
+        (dragover)="onDragOver($event)"
+        (drop)="onDropColumn($event, column.status)"
+      >
+        <header class="column__head">
+          <h2 class="column__title">{{ labels[column.status] }}</h2>
+          <span class="column__count">{{ column.tasks.length }}</span>
+        </header>
+
+        <div class="column__body">
+          @if (column.tasks.length === 0) {
+            <p class="column__empty">Drop tasks here</p>
+          }
+          @for (task of column.tasks; track task.id) {
+            <app-task-card
+              [task]="task"
+              (droppedBefore)="onDroppedBefore(column.status, $event)"
+            />
+          }
+        </div>
+      </section>
+    }
+  </div>
+</section>

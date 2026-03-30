@@ -1,0 +1,144 @@
+.create {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2rem;
+
+  &__header {
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    margin: 0 0 0.35rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  &__lead {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.45;
+  }
+
+  &__back {
+    font-size: 0.9rem;
+    color: #2563eb;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    margin-top: 0.25rem;
+  }
+
+  &__tip {
+    margin: 0.5rem 0 0;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: #475569;
+    background: #f1f5f9;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+
+    &--muted {
+      color: transparent;
+      user-select: none;
+    }
+
+    code {
+      font-size: 0.78em;
+      padding: 0.1em 0.25em;
+      background: #e2e8f0;
+      border-radius: 4px;
+    }
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+  }
+
+  &__req {
+    color: #dc2626;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    font: inherit;
+    padding: 0.55rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #0f172a;
+
+    &:focus {
+      outline: 2px solid #93c5fd;
+      outline-offset: 1px;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__error {
+    font-size: 0.8rem;
+    color: #dc2626;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+
+  &--primary {
+    background: #2563eb;
+    color: #fff;
+
+    &:hover {
+      background: #1d4ed8;
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+
+    &:hover {
+      background: #f1f5f9;
+    }
+  }
+}
