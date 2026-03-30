@@ -25,10 +25,7 @@
             <p class="column__empty">Drop tasks here</p>
           }
           @for (task of column.tasks; track task.id) {
-            <app-task-card
-              [task]="task"
-              (droppedBefore)="onDroppedBefore(column.status, $event)"
-            />
+            <app-task-card [task]="task" (droppedBefore)="onDroppedBefore(column.status, $event)" />
           }
         </div>
       </section>

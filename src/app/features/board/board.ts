@@ -31,7 +31,10 @@ export class Board {
     this.store.moveTask(draggedId, status, col.length);
   }
 
-  protected onDroppedBefore(status: TaskStatus, event: { draggedId: string; beforeId: string }): void {
+  protected onDroppedBefore(
+    status: TaskStatus,
+    event: { draggedId: string; beforeId: string },
+  ): void {
     const { draggedId, beforeId } = event;
     const col = this.store.columns().find((c) => c.status === status)?.tasks ?? [];
     const index = col.findIndex((t) => t.id === beforeId);
